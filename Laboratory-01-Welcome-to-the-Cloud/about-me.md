@@ -1,6 +1,6 @@
 # About Me 
  
-Name: Dmgrey 
+Name: Dmgray 
  
 Course/Section: BSIT 4-D 
  
