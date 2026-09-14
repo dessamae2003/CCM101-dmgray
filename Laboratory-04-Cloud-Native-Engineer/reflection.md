@@ -1,11 +1,13 @@
 # Mission 4 Reflection
 
-1. **Boot time/setup comparison**: How does Docker's few-seconds startup compare to installing an OS on a VM (partitioning, config, driver install, etc.)?
+Completing this lab gave me a much clearer, hands-on understanding of why containers have become the default choice for deploying modern applications, and how different that experience is from working with traditional Virtual Machines.
 
-2. **Why port mapping matters**: Without `-p 8080:80`, the container's internal port 80 is not reachable from outside. Explain how mapping bridges host and container networking.
+The difference in boot time and setup was the most striking part of this mission. Installing an operating system on a VM involves partitioning storage, configuring drivers, waiting through an installer, and then setting up the actual web server software on top — a process that easily takes 15 minutes or more. With Docker, a single `docker run` command pulled the Nginx image and had a fully working web server online in seconds. This isn't just a speed difference; it changes how I think about testing and iterating, since spinning up and tearing down environments becomes nearly frictionless.
 
-3. **What happens on `docker rm`**: Containers are ephemeral by default — explain what happens to any data written inside a container (not in a volume) when it's removed.
+Port mapping (`-p 8080:80`) turned out to be essential rather than optional. Containers are isolated by default, so even though Nginx was listening on port 80 inside the container, that port wasn't reachable from the host machine until I explicitly mapped it. My first attempt to `curl` the server actually failed before the container had finished starting, which reinforced how port mapping and container readiness are two separate things I need to account for.
 
-4. **DevOps impact**: How does packaging an app with all its dependencies into one image reduce "it works on my machine" problems between developers and ops teams?
+Running `docker rm` after stopping the container also clarified something important: containers are meant to be disposable. Any data written inside the container that wasn't stored in a persistent volume is gone permanently once the container is removed. That's a deliberate design choice, not a limitation — it's what makes containers so easy to recreate identically every time.
 
-5. **Portfolio evolution**: Look back at Labs 1–3 (Welcome to the Cloud, Blueprint, Multi-Cloud Explorer) and describe how this lab builds on those skills.
+Thinking about DevOps, this mission made it obvious how containerization closes the gap between developers and operations teams. Because the image bundles the application with all its dependencies, a developer's local environment and a production server run the exact same thing, which removes a huge source of "it works on my machine" friction and makes deployments far more predictable.
+
+My GitHub portfolio at [github.com/dessamae2003/CCM101-dmgray](https://github.com/dessamae2003/CCM101-dmgray) has grown steadily with each lab. It started with Lab 1 introducing basic cloud concepts, moved through building infrastructure blueprints in Lab 2 and comparing multiple cloud providers in Lab 3, and now Lab 4 adds container orchestration fundamentals. Each folder documents a distinct skill, and together they're starting to read as a genuine record of progression from cloud theory into practical, applied cloud-native engineering.
