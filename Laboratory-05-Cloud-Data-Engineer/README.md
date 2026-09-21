@@ -1,7 +1,7 @@
 # Laboratory 05: Cloud Data Engineer
 
 ## Mission Overview
-This lab covers deploying an S3-compatible object storage server (MinIO) using Docker, and using it to create a storage bucket and upload a file — simulating a real-world photo-sharing app backend.
+This lab covers deploying an S3-compatible object storage server (MinIO) using Docker, and using it to create a storage bucket and upload a file simulating a real-world photo-sharing app backend.
 
 ## Objectives
 - Differentiate between Block, File, and Object Storage
