@@ -1,8 +1,8 @@
 # System Baseline Health Report
 
 ## Host Server Metrics
-* **Total RAM Available:** [Insert value from free -h, e.g., 7.8Gi]
-* **Total Storage Capacity (/ root filesystem):** [Insert value from df -h, e.g., 39GB]
+* **Total RAM Available:** 1.9Gi
+* **Total Storage Capacity (/ root filesystem):** 19G (with 30% used on /dev/vda1)
 
 ---
 
